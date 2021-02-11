@@ -1,0 +1,29 @@
+<nav class="navbar navbar-expand-md navbar-dark bg-primary">
+  <div class="container">
+    <a class="navbar-brand" [routerLink]="['/dashboard']">Chat Application</a>
+
+    <ul class="navbar-nav mr-auto">     
+      <li class="nav-item" routerLinkActive="active">
+        <a class="nav-link" [routerLink]="['/user']">User</a>
+      </li>      
+    </ul>
+
+    <div *ngIf="isLoggedIn()">
+      <a class="text-light">
+        Welcome {{userName() | titlecase}}
+      </a>
+      <div class="dropdown-menu">
+        <a class="dropdown-item" (click)="onLogout()">
+          <i class="fa fa-sign-out"></i> Logout
+        </a>
+      </div>
+    </div>
+    <div class="dropdown ml-3">
+      <button type="button" class="btn btn-primary" data-toggle="dropdown" (click)="onLogout()">
+        Logout
+      </button>
+    </div>
+  </div>
+</nav>
+
+

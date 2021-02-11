@@ -1,0 +1,38 @@
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+      <div class="card">
+        <div class="card-header">Register</div>
+        <div class="card-body">
+          <form [formGroup]="registerFormGroup" (ngSubmit)="onRegister()" novalidate>
+            <div class="form-group">
+              <label for="firstName">First Name</label>
+              <input type="text" class="form-control" id="firstName" name="firstName" placeholder="First Name"
+                     formControlName="firstName" tabindex="1" required>
+            </div>
+            <div class="form-group">
+              <label for="lastName">Last Name</label>
+              <input type="text" class="form-control" id="lastName" name="lastName" placeholder="Last Name"
+                     formControlName="lastName" tabindex="2" required>
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" class="form-control" id="email" name="email" placeholder="Email" formControlName="email"
+                     tabindex="3" (keyup)="onEmailBlur($event)" required>
+            </div>
+            <div class="form-group text-center">
+              <a class="btn btn-default" tabindex="5" [routerLink]="['/login']">Back</a>
+              <button class="btn btn-success" type="submit" tabindex="4" [disabled]="registerFormGroup.invalid">
+                Register
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-2"></div>
+</div>
+
+<p-toast key="toastKey1"></p-toast>
